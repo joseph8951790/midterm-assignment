@@ -1,7 +1,7 @@
 # CI/CD Pipeline with GitHub Actions
 
 ## Project Overview
-This project demonstrates a Continuous Integration (CI) pipeline using GitHub Actions for a Node.js application. The pipeline ensures that every code change is automatically built, tested, and deployed efficiently..
+.This project demonstrates a Continuous Integration (CI) pipeline using GitHub Actions for a Node.js application. The pipeline ensures that every code change is automatically built, tested, and deployed efficiently..
 
 ## Project Structure
 CI_CD_Mid_Term/
