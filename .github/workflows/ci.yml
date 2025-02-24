@@ -13,6 +13,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Move to the correct working directory
+        run: |
+          if [ -d "midterm-assignment" ]; then
+            mv midterm-assignment/* . && rm -r midterm-assignment
+          fi
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -20,18 +26,15 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: midterm-assignment
 
       - name: Run tests
         run: npm test
-        working-directory: midterm-assignment
 
       - name: Archive production artifacts
         run: zip -r app.zip . -x "node_modules/*"
-        working-directory: midterm-assignment
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: app
-          path: midterm-assignment/app.zip
+          path: app.zip
