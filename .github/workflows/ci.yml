@@ -52,7 +52,11 @@ jobs:
       - name: Verify Dockerfile exists
         run: |
           ls -la
-          cat Dockerfile
+          if [ ! -f Dockerfile ]; then
+            echo "❌ Dockerfile not found! Exiting..."
+            exit 1
+          fi
+          echo "✅ Dockerfile found!"
 
       - name: Log in to Docker Hub
         env:
