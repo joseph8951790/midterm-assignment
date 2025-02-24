@@ -49,6 +49,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Verify Dockerfile exists
+        run: |
+          ls -la
+          cat Dockerfile
+
       - name: Log in to Docker Hub
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
@@ -56,7 +61,7 @@ jobs:
         run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
       - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/midterm-assignment:latest .
+        run: docker build -f Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/midterm-assignment:latest .
 
       - name: Push Docker image to Docker Hub
         run: docker push ${{ secrets.DOCKER_USERNAME }}/midterm-assignment:latest
