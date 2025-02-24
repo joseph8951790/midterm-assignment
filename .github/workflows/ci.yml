@@ -24,11 +24,14 @@ jobs:
       - name: Install Jest explicitly
         run: npm install --save-dev jest
 
+      - name: Ensure Jest is executable
+        run: chmod +x node_modules/.bin/jest
+
       - name: Verify Jest installation
         run: npx jest --version
 
       - name: Run tests
-        run: npm test
+        run: npx jest
 
       - name: Archive production artifacts
         run: zip -r app.zip . -x "node_modules/*"
