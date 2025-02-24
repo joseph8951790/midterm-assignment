@@ -1,0 +1,24 @@
+{
+  "name": "midterm-assignment",
+  "version": "1.0.0",
+  "description": "A sample Node.js application for CI/CD pipeline with GitHub Actions",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joseph8951790/midterm-assignment.git"
+  },
+  "keywords": [],
+  "author": "Joseph",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "jest": "^29.6.1",
+    "supertest": "^6.3.3"
+  }
+}
