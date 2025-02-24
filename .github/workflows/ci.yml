@@ -20,15 +20,18 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: midterm-assignment
 
       - name: Run tests
         run: npm test
+        working-directory: midterm-assignment
 
       - name: Archive production artifacts
         run: zip -r app.zip . -x "node_modules/*"
+        working-directory: midterm-assignment
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: app
-          path: app.zip
+          path: midterm-assignment/app.zip
