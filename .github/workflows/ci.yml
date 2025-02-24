@@ -56,7 +56,7 @@ jobs:
         run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
       - name: Build Docker image
-        run: docker build -t $DOCKER_USERNAME/midterm-assignment:latest .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/midterm-assignment:latest .
 
       - name: Push Docker image to Docker Hub
-        run: docker push $DOCKER_USERNAME/midterm-assignment:latest
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/midterm-assignment:latest
